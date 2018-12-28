@@ -1,2 +1,2 @@
-# javaApps
+# Java Apps
 My Java Apps
