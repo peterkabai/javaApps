@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Convert {
-    
+
     public static void main(String[] args) throws IOException {
 
         // pick the data and json settings
