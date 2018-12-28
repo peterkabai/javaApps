@@ -1,0 +1,32 @@
+{"bookstore": {"book": [
+    {
+        "year": 2005,
+        "author": "Giada De Laurentiis",
+        "price": 30,
+        "category": "cooking",
+        "title": {
+            "lang": "en",
+            "content": "Everyday Italian"
+        }
+    },
+    {
+        "year": 2005,
+        "author": "J K. Rowling",
+        "price": 29.99,
+        "category": "children",
+        "title": {
+            "lang": "en",
+            "content": "Harry Potter"
+        }
+    },
+    {
+        "year": 2003,
+        "author": "Erik T. Ray",
+        "price": 39.95,
+        "category": "web",
+        "title": {
+            "lang": "en",
+            "content": "Learning XML"
+        }
+    }
+]}}
