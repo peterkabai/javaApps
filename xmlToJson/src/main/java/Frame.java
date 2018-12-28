@@ -4,6 +4,7 @@ import java.net.URL;
 import java.io.IOException;
 import java.io.File;
 import java.awt.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.util.List;
 import java.awt.datatransfer.DataFlavor;
@@ -11,7 +12,27 @@ import java.awt.datatransfer.Transferable;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
+class MyJButton extends JButton {
+    MyJButton(String label) {
+        new JButton(label);
+    }
+    MyJButton() {
+        new JButton();
+    }
+    void useImage(String url) {
+        try {
+            Image img = ImageIO.read(new File(url));
+            this.setIcon(new ImageIcon(img));
+        }
+        catch (Exception e) {
+            System.out.println("ERROR: image file not found");
+        }
+    }
+}
+
 public class Frame {
+
+    public static MyJButton img = new MyJButton();
 
     private static void pickAFile() {
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
@@ -27,18 +48,21 @@ public class Frame {
         frame.setContentPane(panel);
         Container contentPane = frame.getContentPane();
 
-        JButton file = new JButton("Open or Drag File...");
-        file.setPreferredSize(new Dimension(200, 30));
-        file.setTransferHandler(new FileTransferHandler());
-        file.addActionListener(ae -> pickAFile());
-        contentPane.add(file);
-
         JButton enter = new JButton("Submit File");
         enter.setPreferredSize(new Dimension(100, 30));
         contentPane.add(enter);
         enter.addActionListener(ae -> System.out.println(FileTransferHandler.fileName));
 
-        frame.setSize(350, 60);
+        img.setPreferredSize(new Dimension(200, 200));
+        img.setTransferHandler(new FileTransferHandler());
+        String imagePath = FileHandling.getResourcesDir() + "images/drop.png";
+        img.useImage(imagePath);
+        img.setBorder(BorderFactory.createEmptyBorder());
+        img.setTransferHandler(new FileTransferHandler());
+        img.addActionListener(ae -> pickAFile());
+        contentPane.add(img);
+
+        frame.setSize(550, 550);
         frame.setVisible(true);
     }
 }

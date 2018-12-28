@@ -11,22 +11,18 @@ public class Convert {
     public static void main(String[] args) throws IOException {
 
         // pick the data and json settings
-        String inFile = "data.xml";
-        String outFile = "data.json";
         int indents = 4;
-
-        // gets the text from the input file
-        String resources = System.getProperty("user.dir") + "/src/main/resources/";
-        String text = new String(Files.readAllBytes(Paths.get(resources + inFile)));
+        String inFile = FileHandling.getFileAsString("data.xml");
+        String outFile = FileHandling.getResourcesDir() + "data.json";
 
         try {
             // convert to pretty json
-            JSONObject obj = XML.toJSONObject(text);
+            JSONObject obj = XML.toJSONObject(inFile);
             String json = obj.toString(indents);
             System.out.println(json);
 
             // save to json file
-            PrintWriter writer = new PrintWriter(resources + outFile, "UTF-8");
+            PrintWriter writer = new PrintWriter(outFile, "UTF-8");
             writer.println(json);
             writer.close();
 
