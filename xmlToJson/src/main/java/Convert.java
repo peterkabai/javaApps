@@ -17,26 +17,14 @@ public class Convert {
 
     public static void main(String[] args) throws IOException {
 
-        String xml = "<?xml version=\"1.0\" ?><test attrib=\"moretest\">Turn this to JSON</test>";
-
-
-        String filename = "/Users/peter/Desktop/GitHub/javaApps/xmlToJson/src/main/resources/test.txt";
         String resources = System.getProperty("user.dir") + "/src/main/resources/";
-        filename = "test.txt";
-
-
-
-        //URL url = Convert.class.getClassLoader().getResource("resources/test.txt");
-        //File file = new File(url);
-
+        String filename = "data.xml";
         String text = new String(Files.readAllBytes(Paths.get(resources + filename)));
-        System.out.println(text);
-
 
         int indents = 4;
 
         try {
-            JSONObject xmlJSONObj = XML.toJSONObject(xml);
+            JSONObject xmlJSONObj = XML.toJSONObject(text);
             String jsonPrettyPrintString = xmlJSONObj.toString(indents);
             System.out.println(jsonPrettyPrintString);
         } catch (JSONException je) {
