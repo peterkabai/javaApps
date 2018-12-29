@@ -1,13 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
-import java.io.File;
-import javax.imageio.ImageIO;
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
 
 public class jPong {
 
