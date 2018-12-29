@@ -9,9 +9,10 @@ public class Convert {
     public static void fileChosen(String fileName) {
 
         // checks to see if the extension matches
-        System.out.println("File updated: " + fileName);
         if (FileHandling.hasExtension(fileName, "xml")) {
             System.out.println("The file is an XML file");
+            String fileLocation = FileHandling.getLocation(fileName);
+            System.out.println(fileLocation);
         } else {
             System.out.println("The file is NOT an XML file");
         }

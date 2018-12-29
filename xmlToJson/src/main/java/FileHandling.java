@@ -25,4 +25,13 @@ public class FileHandling {
         return ext.equals(extToMatch);
     }
 
+    public static String getLocation(String filePath) {
+        String fileArray[] = filePath.split("/");
+        StringBuilder path = new StringBuilder();
+        for (int i=0; i<fileArray.length-1; i++) {
+            path.append(fileArray[i]).append("/");
+        }
+        return path.toString();
+    }
+
 }
