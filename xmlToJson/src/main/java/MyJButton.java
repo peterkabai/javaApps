@@ -7,6 +7,7 @@ class MyJButton extends JButton {
     MyJButton() {
         new JButton();
     }
+
     void useImage(String url) {
         try {
             Image img = ImageIO.read(new File(url));

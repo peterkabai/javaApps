@@ -5,10 +5,19 @@ import java.nio.file.Paths;
 public class FileHandling {
 
     // gets the text from the input file
-    public static String getFileAsString(String inFile) {
+    public static String getResourceAsString(String inFile) {
         String resources = System.getProperty("user.dir") + "/src/main/resources/";
         try {
             return new String(Files.readAllBytes(Paths.get(resources + inFile)));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "An error has occurred";
+        }
+    }
+
+    public static String getFileAsString(String inFile) {
+        try {
+            return new String(Files.readAllBytes(Paths.get(inFile)));
         } catch (IOException e) {
             e.printStackTrace();
             return "An error has occurred";
@@ -36,6 +45,7 @@ public class FileHandling {
 
     public static String getFileName(String filePath) {
         String fileArray[] = filePath.split("/");
-        return fileArray[fileArray.length-1];
+        String fileNameWithExtension = fileArray[fileArray.length-1];
+        return fileNameWithExtension.split("\\.")[0];
     }
 }
