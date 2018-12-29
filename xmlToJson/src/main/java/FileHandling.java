@@ -18,4 +18,11 @@ public class FileHandling {
     public static String getResourcesDir() {
         return System.getProperty("user.dir") + "/src/main/resources/";
     }
+
+    public static boolean hasExtension(String path, String extToMatch) {
+        String fileArray[] = path.split("\\.");
+        String ext = fileArray[fileArray.length-1];
+        return ext.equals(extToMatch);
+    }
+
 }

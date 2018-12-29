@@ -12,7 +12,12 @@ public class Frame {
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         jfc.showOpenDialog(null);
         File selectedFile = jfc.getSelectedFile();
-        FileTransferHandler.fileName = selectedFile.getAbsolutePath();
+        if (selectedFile != null) {
+            FileTransferHandler.fileName = selectedFile.getAbsolutePath();
+            Convert.fileChosen(FileTransferHandler.fileName);
+        } else {
+            System.out.println("No file selected");
+        }
     }
 
     public static void main(String[] args) {

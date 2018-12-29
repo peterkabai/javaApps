@@ -3,10 +3,19 @@ import org.json.JSONObject;
 import org.json.XML;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class Convert {
+
+    public static void fileChosen(String fileName) {
+
+        // checks to see if the extension matches
+        System.out.println("File updated: " + fileName);
+        if (FileHandling.hasExtension(fileName, "xml")) {
+            System.out.println("The file is an XML file");
+        } else {
+            System.out.println("The file is NOT an XML file");
+        }
+    }
 
     public static void main(String[] args) throws IOException {
 
