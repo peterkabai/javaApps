@@ -31,6 +31,7 @@ class FileTransferHandler extends TransferHandler {
                         File file = (File) list;
                         fileName = file.getCanonicalPath();
                     }
+                    System.out.println("File updated: " + fileName);
                     return true;
                 } else if (flavor.equals(DataFlavor.stringFlavor)) {
                     String fileOrURL = (String) trans.getTransferData(flavor);

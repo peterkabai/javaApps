@@ -39,15 +39,19 @@ public class Frame {
         img.addActionListener(ae -> pickAFile());
         contentPane.add(img, constraints);
 
-        // submit button
-        constraints.gridy = 1;
-        JButton enter = new JButton("Submit File");
-        enter.setPreferredSize(new Dimension(100, 30));
-        contentPane.add(enter, constraints);
-        enter.addActionListener(ae -> System.out.println(FileTransferHandler.fileName));
-
         // set the frame parameters
-        frame.setSize(260, 270);
+        int frameWidth = 260;
+        int frameHeight = 270;
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double width = screenSize.getWidth();
+        double height = screenSize.getHeight();
+        frame.setBounds(
+                (int) Math.round(width / 2 - frameWidth / 2),
+                (int) Math.round(height / 2 - frameHeight / 2),
+                frameWidth,
+                frameHeight
+        );
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 }
