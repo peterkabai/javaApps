@@ -6,13 +6,15 @@ import java.io.PrintWriter;
 
 public class Convert {
 
-    public static void fileChosen(String fileName) {
+    public static void fileChosen(String filePath) {
 
         // checks to see if the extension matches
-        if (FileHandling.hasExtension(fileName, "xml")) {
+        if (FileHandling.hasExtension(filePath, "xml")) {
             System.out.println("The file is an XML file");
-            String fileLocation = FileHandling.getLocation(fileName);
+            String fileLocation = FileHandling.getLocation(filePath);
+            String inputFileName = FileHandling.getFileName(filePath);
             System.out.println(fileLocation);
+            System.out.println(inputFileName);
         } else {
             System.out.println("The file is NOT an XML file");
         }
