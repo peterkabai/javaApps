@@ -6,7 +6,7 @@ import javax.swing.filechooser.FileSystemView;
 
 public class Frame {
 
-    private static MyJButton img = new MyJButton();
+    public static MyJButton img = new MyJButton();
 
     private static void pickAFile() {
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());

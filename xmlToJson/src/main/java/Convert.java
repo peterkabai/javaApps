@@ -18,10 +18,15 @@ public class Convert {
             String fileLocation = FileHandling.getLocation(filePath);
             String inputFileName = FileHandling.getFileName(filePath);
 
+            // change image color to green
+            Frame.img.useImage(FileHandling.getResourcesDir() + "images/dropGreen.png");
+
             // convert and save to the same location
             convertXML(FileHandling.getFileAsString(filePath), fileLocation+inputFileName);
 
         } else {
+            // change image color to red
+            Frame.img.useImage(FileHandling.getResourcesDir() + "images/dropRed.png");
             JOptionPane.showMessageDialog(null, "Please choose an XML file!");
         }
     }
